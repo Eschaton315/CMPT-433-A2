@@ -7,6 +7,17 @@
 
 void Sampler_init(){
 
+    FILE* f = fopen (A2D_FILE_VOLTAGE1, "r");
+    int sampleValue = 0;
+    int sampleList[1000];
+    if (f){
+
+    }
+    for(int i = 0; i < 1000; i++){
+        fscanf(f,"%d",&sampleValue);
+        sampleList[i] = sampleValue;
+        sleepForMs(1);
+    }
 
 return;
 }
