@@ -44,7 +44,7 @@ return test;
 double Sampler_getAverageReading(){
 
 
-return 0;
+return 1;
 }
 
 long long Sampler_getNumSamplesTaken(){
