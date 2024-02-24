@@ -4,8 +4,10 @@ include_directories(include)
 file(GLOB MY_SOURCES "src/*.c")
 add_executable(light_sampler ${MY_SOURCES})
 
+
+
 #Use the HAL library
-target_link_libraries(light_sampler LINK_PRIVATE hal)
+target_link_libraries(light_sampler LINK_PRIVATE hal pthread)
 
 #create remote location
 

@@ -4,7 +4,7 @@
 void Sampler_init(void);
 void Sampler_cleanup(void);
 
-void Sampler_moveCurrentDataToHistory(void);
+int Sampler_getReading(void);
 
 int Sampler_getHistorySize(void);
 
