@@ -9,10 +9,18 @@
 #define A2D_FILE_VOLTAGE1 "/sys/bus/iio/devices/iio:device0/in_voltage1_raw"
 #define A2D_VOLTAGE_REF_V 1.8
 #define A2D_MAX_READING 4095
+#define SAMPLE_MAX_VALUE 1024
+#define HISTORY_FILE "sampleHistory.txt"
 
 bool stopSample = false;
 int totalSample = 0;
+int prevSampleSize = 0;
+double sampleHistory [SAMPLE_MAX_VALUE];
 pthread_t samplerThread;
+
+// Average
+#define WEIGHT_OLD_SAMPLE 0.999
+//static double s_filterVoltage = 1.0;
 
 // Thread synchronization
 static pthread_mutex_t samplerHistoryMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -21,17 +29,13 @@ static void lock(){
     pthread_mutex_lock(&samplerHistoryMutex);
 }
 static void unlock(){
-    pthread_mutex_lock(&samplerHistoryMutex);
+    pthread_mutex_unlock(&samplerHistoryMutex);
 }
 
 // Header for the function that samples light
 static void *sampleThread();
 
 void Sampler_init(){
-    lock();
-    FILE *fp = fopen("sampleHistory.txt", "w");
-    fclose(fp);
-    unlock();
     pthread_create(&samplerThread, NULL, &sampleThread, NULL);
     return;
 }
@@ -40,13 +44,19 @@ void Sampler_init(){
 static void MoveSamplesToHistory(double *sampleList){
     int counter = 0;
     lock();
-    FILE *fp = fopen("sampleHistory.txt", "a");
+    {
+    //FILE *fp = fopen(HISTORY_FILE, "a");
     while (sampleList[counter] != 0){
-        fprintf(fp, "%f ", sampleList[counter]);
+    //    fprintf(fp, "%f ", sampleList[counter]);
+    sampleHistory[counter] = sampleList[counter];
+    //printf("%f ",sampleHistory[counter]);
         counter++;
     }
-    fprintf(fp, "\n");
-    fclose(fp);
+    //printf("\n");
+    //fprintf(fp, "\n");
+    //fclose(fp);
+    prevSampleSize = counter;
+    }
     unlock();
     return;
 }
@@ -55,7 +65,7 @@ static void MoveSamplesToHistory(double *sampleList){
 static void *sampleThread(){
     while (!stopSample){
         int sample;
-        double sampleList[1000];
+        double sampleList[SAMPLE_MAX_VALUE];
         long long currentTime = getTimeInMs();
         int counter = 0;
         while (getTimeInMs() < currentTime + 1000){
@@ -84,20 +94,22 @@ void Sampler_cleanup(){
 }
 
 int Sampler_getHistorySize(){
-
-    return 0;
+    return prevSampleSize;
 }
 
 double *Sampler_getHistory(int *size){
-    double *test = 0;
-    if (size[0] == 0){
-        test[0] = 0.0;
+    double *historyCopy = 0;
+    printf("getting hist\n");
+    lock();
+    {
+        historyCopy = malloc(sizeof(*sampleHistory)*prevSampleSize);
+        for(int i = 0; i<prevSampleSize; i++){
+            historyCopy[i] = sampleHistory[i] ;
+        }
+        *size = prevSampleSize;
     }
-    else{
-        test[0] = 1.0;
-    }
-
-    return test;
+    unlock();
+    return historyCopy;
 }
 
 double Sampler_getAverageReading(){
@@ -106,6 +118,5 @@ double Sampler_getAverageReading(){
 
 long long Sampler_getNumSamplesTaken()
 {
-
     return 0;
 }

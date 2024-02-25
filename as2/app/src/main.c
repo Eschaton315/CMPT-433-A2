@@ -11,14 +11,19 @@
 
 int main()
 {
-
+    printf("starting sampling\n");
     Sampler_init();
 
     sleepForMs(3000);
-
+    int len = 0;
+    double *hist = Sampler_getHistory(&len);
     Sampler_cleanup();
-
-    printf("Done\n");
+    //test for getHistory function
+    for(int i = 0; i < Sampler_getHistorySize(); i++){
+        printf("%f",hist[i]);
+    }
+    free(hist);
+    printf("\nDone\n");
 
     return 0;
 }
