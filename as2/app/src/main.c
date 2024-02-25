@@ -9,19 +9,16 @@
 #include "hal/led.h"
 #include "hal/joyStick.h"
 
+int main()
+{
 
+    Sampler_init();
 
+    sleepForMs(3000);
 
+    Sampler_cleanup();
 
-int main(){
+    printf("Done\n");
 
-Sampler_init();
-
-sleepForMs(3000);
-
-Sampler_cleanup();
-
-printf("Done\n");
-
-return 0;
+    return 0;
 }

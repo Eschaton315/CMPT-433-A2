@@ -14,12 +14,24 @@ bool stopSample = false;
 int totalSample = 0;
 pthread_t samplerThread;
 
+// Thread synchronization
+static pthread_mutex_t samplerHistoryMutex = PTHREAD_MUTEX_INITIALIZER;
+
+static void lock(){
+    pthread_mutex_lock(&samplerHistoryMutex);
+}
+static void unlock(){
+    pthread_mutex_lock(&samplerHistoryMutex);
+}
+
 // Header for the function that samples light
 static void *sampleThread();
 
 void Sampler_init(){
+    lock();
     FILE *fp = fopen("sampleHistory.txt", "w");
     fclose(fp);
+    unlock();
     pthread_create(&samplerThread, NULL, &sampleThread, NULL);
     return;
 }
@@ -27,6 +39,7 @@ void Sampler_init(){
 // After one second all saved samples will be moved to sampleHistory.txt
 static void MoveSamplesToHistory(double *sampleList){
     int counter = 0;
+    lock();
     FILE *fp = fopen("sampleHistory.txt", "a");
     while (sampleList[counter] != 0){
         fprintf(fp, "%f ", sampleList[counter]);
@@ -34,6 +47,7 @@ static void MoveSamplesToHistory(double *sampleList){
     }
     fprintf(fp, "\n");
     fclose(fp);
+    unlock();
     return;
 }
 
