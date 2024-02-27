@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../hal/include/hal/joyStick.h
+stdbool.h
+-
+
+../hal/include/hal/led.h
+stdbool.h
+-
+
+/home/kenta/cmpt433/work/CMPT-433-A2/as2/hal/src/joyStick.c
+hal/joyStick.h
+/home/kenta/cmpt433/work/CMPT-433-A2/as2/hal/src/hal/joyStick.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/kenta/cmpt433/work/CMPT-433-A2/as2/hal/src/led.c
+hal/led.h
+/home/kenta/cmpt433/work/CMPT-433-A2/as2/hal/src/hal/led.h
+stdio.h
+-
+string.h
+-
+

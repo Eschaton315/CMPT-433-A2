@@ -10,6 +10,6 @@ void changeTerminateStatus(bool status){
 	
 }
 
-bool GetTerminate Status(void){
+bool getTerminateStatus(void){
 	return terminate;
 }
