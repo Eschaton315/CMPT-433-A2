@@ -12,15 +12,16 @@
 #define SAMPLE_MAX_VALUE 1024
 #define HISTORY_FILE "sampleHistory.txt"
 
+// For sample sizes and saving history
 bool stopSample = false;
-int totalSample = 0;
+static unsigned long long totalSample = 0;
 int prevSampleSize = 0;
 double sampleHistory [SAMPLE_MAX_VALUE];
 pthread_t samplerThread;
 
-// Average
+// For getting average light levels
 #define WEIGHT_OLD_SAMPLE 0.999
-//static double s_filterVoltage = 1.0;
+static double avgVoltage = 1.0;
 
 // Thread synchronization
 static pthread_mutex_t samplerHistoryMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -45,16 +46,10 @@ static void MoveSamplesToHistory(double *sampleList){
     int counter = 0;
     lock();
     {
-    //FILE *fp = fopen(HISTORY_FILE, "a");
     while (sampleList[counter] != 0){
-    //    fprintf(fp, "%f ", sampleList[counter]);
     sampleHistory[counter] = sampleList[counter];
-    //printf("%f ",sampleHistory[counter]);
         counter++;
     }
-    //printf("\n");
-    //fprintf(fp, "\n");
-    //fclose(fp);
     prevSampleSize = counter;
     }
     unlock();
@@ -68,6 +63,8 @@ static void *sampleThread(){
         double sampleList[SAMPLE_MAX_VALUE];
         long long currentTime = getTimeInMs();
         int counter = 0;
+
+        //Get as many samples within 1 second with minimum 1ms delay
         while (getTimeInMs() < currentTime + 1000){
             FILE *sampleFile = fopen(A2D_FILE_VOLTAGE1, "r");
             if (sampleFile == NULL){
@@ -77,8 +74,12 @@ static void *sampleThread(){
             fscanf(sampleFile, "%d", &sample);
             sampleList[counter] = ((double)sample / A2D_MAX_READING) * A2D_VOLTAGE_REF_V;
             fclose(sampleFile);
-            sleepForMs(1);
+            
+            //Calculate average
+            avgVoltage = WEIGHT_OLD_SAMPLE * avgVoltage + (1 - WEIGHT_OLD_SAMPLE) * sampleList[counter];
             counter++;
+            totalSample++;
+            sleepForMs(1);
         }
         MoveSamplesToHistory(sampleList);
     }
@@ -98,6 +99,7 @@ int Sampler_getHistorySize(){
 }
 
 double *Sampler_getHistory(int *size){
+    //dynamically allocate an array of doubles of all samples in the previous second
     double *historyCopy = 0;
     printf("getting hist\n");
     lock();
@@ -113,10 +115,9 @@ double *Sampler_getHistory(int *size){
 }
 
 double Sampler_getAverageReading(){
-    return 1;
+    return avgVoltage;
 }
 
-long long Sampler_getNumSamplesTaken()
-{
-    return 0;
+long long Sampler_getNumSamplesTaken(){
+    return totalSample;
 }
