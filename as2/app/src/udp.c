@@ -15,7 +15,7 @@
 
 //Commands defined
 #define COM_HELP "help"
-#define COM_? "?"
+#define COM_QUESTION "?"
 #define COM_COUNT "count"
 #define COM_LEN "length"
 #define COM_DIPS "dips"
