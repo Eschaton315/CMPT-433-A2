@@ -7,9 +7,11 @@ void UDPThreadCreate(void);
 //Runs join to successfully close the thread
 void UDPThreadJoin(void);
 
-//Fnction for listening to UDP packets
+//Function for listening to UDP packets
 void *UDPListen(void *args);
 
+//Function for finding what command was requested 
+//and running said command
 void RunCommand(char* command, int socketDesc, struct sockaddr_in *pSin);
 
 
