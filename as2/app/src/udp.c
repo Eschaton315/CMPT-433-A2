@@ -76,7 +76,7 @@ static void *UDPListen(void *args){
 	//Receives data, sends reply if needed
 	struct sockaddr_in sin;
 	unsigned int sinLen;
-	int bytesRx
+	int bytesRx;
 	
 	//Grabbing necessary data for socket
 	memset(&sin, 0, sizeof(sin));
@@ -88,7 +88,7 @@ static void *UDPListen(void *args){
 	int socket_descriptor = socket(PF_INET, SOCK_DGRAM, 0);
 	bind(socket_descriptor, (struct sockaddr*) &sin, sizeof(sin));
 
-	while(GetTerminate Status() == false){
+	while(getTerminateStatus() == false){
 		
 		//receiving packets
 		sinLen = sizeof(sin);		
@@ -254,7 +254,7 @@ static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiv
 	if(commandCode != 7 && commandCode != 8){
 		//saved for next use
 		memcpy(msgPrev, command, RECEIVED_MAX_SIZE);
-		if(getFirstCom == true){
+		if(getFirstCom() == true){
 			changeFirstCom(false);
 		}
 		
