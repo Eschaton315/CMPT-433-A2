@@ -94,6 +94,7 @@ void Sampler_cleanup(){
     return;
 }
 
+//returns the size of history of the previous second
 int Sampler_getHistorySize(){
     return prevSampleSize;
 }
