@@ -24,7 +24,7 @@
 #define COM_REPEAT 10
 
 
-static pthread_t threadID;
+static pthread_t udpThread;
 static char reply[REPLY_MAX_SIZE];
 static char msgPrev[RECEIVED_MAX_SIZE];
 static bool firstCom = true;
@@ -44,12 +44,12 @@ static int CheckCommand(char* command);
 
 //Creates the thread for UDP Listen
 void UDPThreadCreate(void){
-	pthread_create(&threadID, NULL, &UDPListen, NULL);
+	pthread_create(&udpThread, NULL, &UDPListen, NULL);
 }
 
 //Runs join to successfully close the thread
 void UDPThreadJoin(void){
-	pthread_join(threadID, NULL);
+	pthread_join(udpThread, NULL);
 }
 
 //get value of firstCom Variable
