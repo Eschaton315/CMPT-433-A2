@@ -193,7 +193,7 @@ static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiv
 			
 			//Error checking
 			if(histSize < 1){
-				sprintf(reply, "Error in checking history...")
+				sprintf(reply, "Error in checking history...");
 			}else{
 				sprintf(reply, "%.3lf, ", histArr[0]);
 				for(int i = 1; i < histSize; i++){
@@ -204,7 +204,7 @@ static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiv
 				
 				}
 			}
-			
+			strncat(reply, "\n");
 			
 			
 			break;
