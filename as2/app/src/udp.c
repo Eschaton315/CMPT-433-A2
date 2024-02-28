@@ -150,7 +150,7 @@ static int CheckCommand(char* command){
 }
 
 //Check the message and run the command in the message
-static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiven){
+static void RunCommand(char* command, int socketDesc){
 	
 	reply[0] = 0;	
 	int commandCode = CheckCommand(command);
