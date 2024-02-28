@@ -183,11 +183,11 @@ static void RunCommand(char* command, int socketDesc){
 		//dips
 		case 4:
 			//Will be worked on and updated shortly
-			
+			printf("temp statement");
 			break;
 			
 		//hist
-		case 5: ;
+		case 5: 
 			int histSize = 0;
 			double* histArr = Sampler_getHistory(&histSize);
 			
