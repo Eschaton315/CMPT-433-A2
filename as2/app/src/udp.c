@@ -187,9 +187,9 @@ static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiv
 			break;
 			
 		//hist
-		case 5:
-			int histSize = Sampler_getHistorySize();
-			double* histArr = Sampler_getHistory(histSize);
+		case 5: ;
+			int histSize = 0;
+			double* histArr = Sampler_getHistory(&histSize);
 			
 			//Error checking
 			if(histSize < 1){
