@@ -190,20 +190,25 @@ static void RunCommand(char* command){
 		case 5: ;
 			int histSize = 0;
 			double* histArr = Sampler_getHistory(&histSize);
+			char sampleHold[10]; 
 			
 			//Error checking
 			if(histSize < 1){
 				sprintf(reply, "Error in checking history...");
 			}else{
-				sprintf(reply, "%.3lf, ", histArr[0]);
-				for(int i = 1; i < histSize; i++){					
+				sprintf(reply, "%.3f, ", histArr[0]);
+				for(int i = 1; i < histSize; i++){
 					if(i % 10 == 0){
-						strcat(reply, "%.3lf, \n", histArr[i]);
+						sprintf(sampleHold, "%.3f, \n", histArr[i]);
+						strncat(reply, sampleHold, strlen(sampleHold));
 					}else{
-						strcat(reply, "%.3lf, ", histArr[i]);
-					}
-				
+						sprintf(sampleHold, "%.3f, ", histArr[i]);
+						strncat(reply, sampleHold, strlen(sampleHold));
+					}			
 				}
+				sprintf(sampleHold, "\n");
+				strncat(reply, sampleHold, strlen(sampleHold));
+				
 			}
 			strcat(reply, "\n Current History \n");
 			
