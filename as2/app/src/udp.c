@@ -198,14 +198,14 @@ static void RunCommand(char* command){
 				sprintf(reply, "%.3lf, ", histArr[0]);
 				for(int i = 1; i < histSize; i++){					
 					if(i % 10 == 0){
-						strncat(reply, "%.3lf, \n", histArr[i]);
+						strcat(reply, "%.3lf, \n", histArr[i]);
 					}else{
-						strncat(reply, "%.3lf, ", histArr[i]);
+						strcat(reply, "%.3lf, ", histArr[i]);
 					}
 				
 				}
 			}
-			strncat(reply, "\n Current History \n");
+			strcat(reply, "\n Current History \n");
 			
 			
 			break;
