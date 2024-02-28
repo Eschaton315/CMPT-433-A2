@@ -30,7 +30,7 @@ static char msgPrev[RECEIVED_MAX_SIZE];
 static bool firstCom = true;
 
 //Function for listening to UDP packets
-static void *UDPListen(void);
+static void* UDPListen(void *args);
 
 //Function for finding what command was requested 
 //and running said command
@@ -64,7 +64,7 @@ void changeFirstCom(bool status){
 }
 
 //Function for listening to UDP packets
-static void *UDPListen(void){
+static void *UDPListen(void *args){
 	
 	
 	char msg[RECEIVED_MAX_SIZE];
@@ -96,7 +96,7 @@ static void *UDPListen(void){
 		
 		msg[bytesRx] = 0;
 		
-		RunCommand(msg, socket_descriptor, &sin);
+		RunCommand(msg);
 		
 		//send reply if necessary
 		if(strlen(reply) > 0){
