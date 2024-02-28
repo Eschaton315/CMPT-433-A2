@@ -30,11 +30,11 @@ static char msgPrev[RECEIVED_MAX_SIZE];
 static bool firstCom = true;
 
 //Function for listening to UDP packets
-static void *UDPListen(void *args);
+static void *UDPListen(void);
 
 //Function for finding what command was requested 
 //and running said command
-static void RunCommand(char* command, int socketDesc, struct sockaddr_in *pSin);
+static void RunCommand(char* command);
 
 //Checks and find which command was sent
 //1 = Help / ?, 2 = count, 3 = len, 4 = dips
@@ -64,7 +64,7 @@ void changeFirstCom(bool status){
 }
 
 //Function for listening to UDP packets
-static void *UDPListen(void *args){
+static void *UDPListen(void){
 	
 	
 	char msg[RECEIVED_MAX_SIZE];
@@ -150,7 +150,7 @@ static int CheckCommand(char* command){
 }
 
 //Check the message and run the command in the message
-static void RunCommand(char* command, int socketDesc){
+static void RunCommand(char* command){
 	
 	reply[0] = 0;	
 	int commandCode = CheckCommand(command);
@@ -205,7 +205,7 @@ static void RunCommand(char* command, int socketDesc){
 				
 				}
 			}
-			strncat(reply, "\n");
+			strncat(reply, "\n Current History \n");
 			
 			
 			break;
