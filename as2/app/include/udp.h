@@ -1,5 +1,6 @@
 #ifndef _UDP_H_
 #define _UDP_H_
+#include <stdbool.h>
 
 //Creates the thread for UDP Listen
 void UDPThreadCreate(void);
@@ -7,14 +8,11 @@ void UDPThreadCreate(void);
 //Runs join to successfully close the thread
 void UDPThreadJoin(void);
 
-//Function for listening to UDP packets
-void *UDPListen(void *args);
+//get value of firstCom Variable
+bool getFirstCom(void);
 
-//Function for finding what command was requested 
-//and running said command
-void RunCommand(char* command, int socketDesc, struct sockaddr_in *pSin);
-
-
+//get value of firstCom Variable
+void changeFirstCom(bool status);
 
 
 #endif
