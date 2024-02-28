@@ -30,7 +30,7 @@ static char msgPrev[RECEIVED_MAX_SIZE];
 static bool firstCom = true;
 
 //Function for listening to UDP packets
-static void* UDPListen(void *args);
+static void* UDPListen();
 
 //Function for finding what command was requested 
 //and running said command
@@ -64,7 +64,7 @@ void changeFirstCom(bool status){
 }
 
 //Function for listening to UDP packets
-static void *UDPListen(void *args){
+static void *UDPListen(){
 	
 	
 	char msg[RECEIVED_MAX_SIZE];
