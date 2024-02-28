@@ -1,8 +1,0 @@
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles/rebuild_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles/edit_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/hal/CMakeFiles/rebuild_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/hal/CMakeFiles/edit_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/hal/CMakeFiles/hal.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/app/CMakeFiles/rebuild_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/app/CMakeFiles/edit_cache.dir
-/home/kenta/cmpt433/work/CMPT-433-A2/as2/build/app/CMakeFiles/light_sampler.dir
