@@ -34,7 +34,7 @@ static void *UDPListen(void *args);
 
 //Function for finding what command was requested 
 //and running said command
-void RunCommand(char* command, int socketDesc, struct sockaddr_in *pSin);
+static void RunCommand(char* command, int socketDesc, struct sockaddr_in *pSin);
 
 //Checks and find which command was sent
 //1 = Help / ?, 2 = count, 3 = len, 4 = dips
@@ -101,7 +101,7 @@ static void *UDPListen(void *args){
 		//send reply if necessary
 		if(strlen(reply) > 0){
 			sinLen = sizeof(sin);
-			sendto(socket_descriptor, reply, strlen(reply),(struct sockaddr *) &sin, sinLen);
+			sendto(socket_descriptor, reply, strlen(reply), 0, (struct sockaddr *) &sin, sinLen);
 			
 		} 
 	}
@@ -196,10 +196,11 @@ static void RunCommand(char* command, int socketDesc, struct sockaddr_in *sinGiv
 				sprintf(reply, "Error in checking history...");
 			}else{
 				sprintf(reply, "%.3lf, ", histArr[0]);
-				for(int i = 1; i < histSize; i++){
-					strncat(reply, "%.3lf, ", histArr[i]);
+				for(int i = 1; i < histSize; i++){					
 					if(i % 10 == 0){
-						strncat(reply, "\n");
+						strncat(reply, "%.3lf, \n", histArr[i]);
+					}else{
+						strncat(reply, "%.3lf, ", histArr[i]);
 					}
 				
 				}
