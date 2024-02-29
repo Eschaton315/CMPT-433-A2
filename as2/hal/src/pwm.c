@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <stdbool.h>
-#include "timer.h"
+#include "app/timer.h"
 #include "pwm.h"
 #include "sampler.h"
 #include "hal/joyStick.h"
