@@ -182,7 +182,7 @@ static void RunCommand(char* command){
 			break;
 			
 		//dips
-		case 4:
+		case 4: ;
 			//Will be worked on and updated shortly
 			int dips = Analyzer_analyzeDips();
 			sprintf(reply, "# Dips: %d", dips);
