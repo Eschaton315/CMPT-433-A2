@@ -8,6 +8,7 @@
 #include "udp.h"
 #include "terminate.h"
 #include "sampler.h"
+#include "analyzer.h"
 
 //Defined for UDP
 #define PORT 12345
@@ -183,7 +184,8 @@ static void RunCommand(char* command){
 		//dips
 		case 4:
 			//Will be worked on and updated shortly
-			printf("temp statement");
+			int dips = Analyzer_analyzeDips();
+			sprintf(reply, "# Dips: %d", dips);
 			break;
 			
 		//hist
