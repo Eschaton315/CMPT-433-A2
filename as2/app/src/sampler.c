@@ -75,7 +75,7 @@ static void *sampleThread(){
             sampleList[counter] = ((double)sample / A2D_MAX_READING) * A2D_VOLTAGE_REF_V;
             fclose(sampleFile);
             
-            //Calculate average
+            //Calculate average via exponential smoothing
             avgVoltage = WEIGHT_OLD_SAMPLE * avgVoltage + (1 - WEIGHT_OLD_SAMPLE) * sampleList[counter];
             counter++;
             totalSample++;
