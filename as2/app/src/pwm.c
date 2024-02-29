@@ -6,6 +6,7 @@
 #include "timer.h"
 #include "pwm.h"
 #include "sampler.h"
+#include "terminate.h"
 
 #define LED_RED_PERIOD "/dev/bone/pwm/1/b/period"
 #define LED_GREEN_PERIOD "/dev/bone/pwm/2/a/period"
@@ -105,7 +106,7 @@ bool PWMledsOn(char* LEDPath){
 //Change the frequency of LEDs with PWM
 bool ChangePWMFrequency(int frequency){	
 	bool status;
-    char* charFrequency[BUFFER_SIZE];
+    char charFrequency[BUFFER_SIZE];
 	sprintf(charFrequency, "%d", frequency);
 	status = WriteToFile(LED_RED_PERIOD, charFrequency);
     
@@ -208,5 +209,5 @@ static void *LEDViaPWM(){
 	status = PWMledsOff(LED_GREEN_PERIOD);
 	status = PWMledsOff(LED_BLUE_PERIOD);
 	
-	return void;
+	return NULL;
 }
