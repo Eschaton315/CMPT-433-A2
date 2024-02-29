@@ -186,9 +186,9 @@ static void *LEDViaPWM*(){
 	
 	//Config LED before starting
 	configLED();
-	status = PWMledOn(LED_RED_PERIOD);
-	status = PWMledOn(LED_GREEN_PERIOD);
-	status = PWMledOn(LED_BLUE_PERIOD);
+	status = PWMledsOn(LED_RED_PERIOD);
+	status = PWMledsOn(LED_GREEN_PERIOD);
+	status = PWMledsOn(LED_BLUE_PERIOD);
 	status = SetPWMledPurple();
 	
 	while(getTerminateStatus() == false){
@@ -204,9 +204,9 @@ static void *LEDViaPWM*(){
 		}
 	}
 	
-	status = PWMledOff(LED_RED_PERIOD);
-	status = PWMledOff(LED_GREEN_PERIOD);
-	status = PWMledOff(LED_BLUE_PERIOD);
+	status = PWMledsOff(LED_RED_PERIOD);
+	status = PWMledsOff(LED_GREEN_PERIOD);
+	status = PWMledsOff(LED_BLUE_PERIOD);
 	
 	return void;
 }
