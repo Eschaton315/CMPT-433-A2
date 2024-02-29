@@ -188,7 +188,7 @@ static void RunCommand(char* command){
 			
 		//hist
 		case 5: ;
-			int histSize = 0;
+			int histSize = Sampler_getHistorySize();
 			double* histArr = Sampler_getHistory(&histSize);
 			char sampleHold[10]; 
 			
