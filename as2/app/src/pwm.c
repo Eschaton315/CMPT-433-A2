@@ -134,8 +134,8 @@ bool ChangePWMFrequency(int frequency){
 bool SetPWMledPurple(void){
 	bool status;
     char* charHold[BUFFER_SIZE];
-	sprintf(charFrequency, "%d", COLOUR_PRESET);
-	status = WriteToFile(LED_RED_DUTY_CYCLE, charFrequency);
+	sprintf(charHold, "%d", COLOUR_PRESET);
+	status = WriteToFile(LED_RED_DUTY_CYCLE, charHold);
     
 	if(status == false){
 		return false;
@@ -147,7 +147,7 @@ bool SetPWMledPurple(void){
 		return false;
 	}
 
-	status = WriteToFile(LED_BLUE_DUTY_CYCLE, charFrequency);
+	status = WriteToFile(LED_BLUE_DUTY_CYCLE, charHold);
     
 	if(status == false){
 		return false;
