@@ -3,6 +3,6 @@
 
 int Analyzer_analyzeDips(void);
 
-void Analyzer_displaySample(void);
+void *Analyzer_displaySample();
 
 #endif

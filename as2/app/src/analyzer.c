@@ -37,25 +37,27 @@ int Analyzer_analyzeDips(){
 }
 
 //Outputs information of teh previous second into the terminal
-void Analyzer_displaySample(){
+void *Analyzer_displaySample(){
     int size = 0;
     double* lightData = Sampler_getHistory(&size);
     double average = Sampler_getAverageReading();
     int totalSamples = Sampler_getNumSamplesTaken();
     int dipCount = Analyzer_analyzeDips();
+    
+    enum Period_whichEvent eventType = PERIOD_EVENT_SAMPLE_LIGHT;
+    Period_statistics_t *pStats = malloc(sizeof *pStats);
+    Period_getStatisticsAndClear(eventType, pStats);
+    
 
     //TODO: get POT raw data and its frequency (Hz)
-    //TODO: get Timing jitter information from 1.7
-
-
 
     //First Line displays # of samples, reading from POT, # of dips,
     //and time jitter info from the previous second 
     printf("#Smpl/s = %d    ", totalSamples);
     printf("POT @ <rawPOTData> => <POTFrequency>"   );
-    printf("avg = %.3f", average);
+    printf("avg = %.3f  ", average);
     printf("dips = %d   ", dipCount);
-    printf("Smpl ms[<min>,<max>] avg <average>/%d", size);
+    printf("Smpl ms[%.3f,%.3f] avg %.3f/%d",pStats->minPeriodInMs,pStats->maxPeriodInMs,pStats->avgPeriodInMs ,pStats->numSamples);
     printf("\n");
 
     int sampleInterval = 1;
@@ -73,4 +75,6 @@ void Analyzer_displaySample(){
         }
         printf("\n");
     free(lightData);
+    free(pStats);
+    return NULL;
 }

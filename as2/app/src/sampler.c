@@ -5,6 +5,8 @@
 #include <pthread.h>
 #include <unistd.h>
 #include "timer.h"
+#include "periodTimer.h"
+#include "analyzer.h"
 
 #define A2D_FILE_VOLTAGE1 "/sys/bus/iio/devices/iio:device0/in_voltage1_raw"
 #define A2D_VOLTAGE_REF_V 1.8
@@ -18,6 +20,7 @@ static unsigned long long totalSample = 0;
 int prevSampleSize = 0;
 double sampleHistory [SAMPLE_MAX_VALUE];
 pthread_t samplerThread;
+pthread_t analyzeThread;
 
 // For getting average light levels
 #define WEIGHT_OLD_SAMPLE 0.999
@@ -60,10 +63,10 @@ static void MoveSamplesToHistory(double *sampleList){
 static void *sampleThread(){
     while (!stopSample){
         int sample;
-        double sampleList[SAMPLE_MAX_VALUE];
+        double sampleList[SAMPLE_MAX_VALUE] = {0};
         long long currentTime = getTimeInMs();
         int counter = 0;
-
+        enum Period_whichEvent eventSample = PERIOD_EVENT_SAMPLE_LIGHT;
         //Get as many samples within 1 second with minimum 1ms delay
         while (getTimeInMs() < currentTime + 1000){
             FILE *sampleFile = fopen(A2D_FILE_VOLTAGE1, "r");
@@ -79,9 +82,12 @@ static void *sampleThread(){
             avgVoltage = WEIGHT_OLD_SAMPLE * avgVoltage + (1 - WEIGHT_OLD_SAMPLE) * sampleList[counter];
             counter++;
             totalSample++;
+            Period_markEvent(eventSample);
             sleepForMs(1);
         }
+        pthread_join(analyzeThread, NULL);
         MoveSamplesToHistory(sampleList);
+        pthread_create(&analyzeThread, NULL, &Analyzer_displaySample, NULL);
     }
     return NULL;
 }
@@ -102,7 +108,6 @@ int Sampler_getHistorySize(){
 double *Sampler_getHistory(int *size){
     //dynamically allocate an array of doubles of all samples in the previous second
     double *historyCopy = 0;
-    printf("getting hist\n");
     lock();
     {
         historyCopy = malloc(sizeof(*sampleHistory)*prevSampleSize);

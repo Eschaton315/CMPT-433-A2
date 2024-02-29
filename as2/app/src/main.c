@@ -7,25 +7,21 @@
 #include "timer.h"
 #include "sampler.h"
 #include "analyzer.h"
+#include "periodTimer.h"
 #include "hal/led.h"
 #include "hal/joyStick.h"
 
 int main()
 {
     printf("starting sampling\n");
+    Period_init();
     Sampler_init();
 
-    sleepForMs(3000);
-    int len = 0;
-    double *hist = Sampler_getHistory(&len);
-    Sampler_cleanup();
-    //test for getHistory function
-    for(int i = 0; i < Sampler_getHistorySize(); i++){
-        printf("%f",hist[i]);
-    }
+    //replace this with the udp listener
+    sleepForMs(5500);
 
-    printf("Number of Dips in last second is : %d\n", Analyzer_analyzeDips());
-    free(hist);
+    Sampler_cleanup();
+    Period_cleanup();
 
     printf("\nDone\n");
 
