@@ -6,7 +6,7 @@
 #include "timer.h"
 #include "pwm.h"
 #include "sampler.h"
-#include "joystick.h"
+#include "hal/joyStick.h"
 
 #define LED_RED_PERIOD "/dev/bone/pwm/1/b/period"
 #define LED_GREEN_PERIOD "/dev/bone/pwm/2/a/period"

@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include "timer.h"
 #include "sampler.h"
+#include "analyzer.h"
 #include "hal/led.h"
 #include "hal/joyStick.h"
 
@@ -22,7 +23,10 @@ int main()
     for(int i = 0; i < Sampler_getHistorySize(); i++){
         printf("%f",hist[i]);
     }
+
+    printf("Number of Dips in last second is : %d\n", Analyzer_analyzeDips());
     free(hist);
+
     printf("\nDone\n");
 
     return 0;
