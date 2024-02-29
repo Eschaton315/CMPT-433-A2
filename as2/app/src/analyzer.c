@@ -46,7 +46,8 @@ void Analyzer_displaySample(){
     //TODO: get POT raw data and its frequency (Hz)
     //TODO: get Timing jitter information from 1.7
 
-    //First Line
+    //First Line displays # of samples, reading from POT, # of dips,
+    //and time jitter info from the previous second 
     printf("#Smpl/s = %d    ", size);
     printf("POT @ <rawPOTData> => <POTFrequency>"   );
     printf("dips = %d   ", dipCount);
@@ -58,9 +59,11 @@ void Analyzer_displaySample(){
     if(size >= 20){
         sampleInterval = size / 20;
     }
+    
+    //Second Line prints 20 samples evenly distributed through the sampleHistory 
         for(int i = 0; i<size && count<20;i++){
             if(i % sampleInterval == 0){
-                printf("%d:%.3f ");
+                printf("%d:%.3f ",i,lightData[i]);
                 count++;
             }
         }
