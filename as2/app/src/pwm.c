@@ -177,7 +177,7 @@ int CheckPWMFrequency(void){
 }
 
 //Function for running the PWM
-static void *LEDViaPWM*(){
+static void *LEDViaPWM(){
 	
 	long long timeCurr = 0;
 	long long timePrev = -1001;
