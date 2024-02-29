@@ -183,14 +183,14 @@ static void *LEDViaPWM(){
 	long long timeCurr = 0;
 	long long timePrev = -1001;
 	int PWMFrequency = 0;
-	bool status;
+	//bool status;
 	
 	//Config LED before starting
 	configLED();
-	status = PWMledsOn(LED_RED_PERIOD);
-	status = PWMledsOn(LED_GREEN_PERIOD);
-	status = PWMledsOn(LED_BLUE_PERIOD);
-	status = SetPWMledPurple();
+	PWMledsOn(LED_RED_PERIOD);
+	PWMledsOn(LED_GREEN_PERIOD);
+	PWMledsOn(LED_BLUE_PERIOD);
+	SetPWMledPurple();
 	
 	while(getTerminateStatus() == false){
 		timeCurr = getTimeInMs();
@@ -205,9 +205,9 @@ static void *LEDViaPWM(){
 		}
 	}
 	
-	status = PWMledsOff(LED_RED_PERIOD);
-	status = PWMledsOff(LED_GREEN_PERIOD);
-	status = PWMledsOff(LED_BLUE_PERIOD);
+	PWMledsOff(LED_RED_PERIOD);
+	PWMledsOff(LED_GREEN_PERIOD);
+	PWMledsOff(LED_BLUE_PERIOD);
 	
 	return NULL;
 }

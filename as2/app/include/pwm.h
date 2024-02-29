@@ -23,7 +23,7 @@ int CalculatePWMFrequency(void);
 bool ChangePWMFrequency(int frequency);
 
 //Change the LED colour to purple
-void SetPWMledPurple(void);
+bool SetPWMledPurple(void);
 
 //Check the period of the LED (blur as example) to determine 
 //whether to switch or not to switch
