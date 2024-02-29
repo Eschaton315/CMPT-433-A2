@@ -131,9 +131,9 @@ bool ChangePWMFrequency(int frequency){
 }
 
 //Change the LED colour to purple
-bool SetPWMledPurple(void){
+bool SetPWMledPurple(){
 	bool status;
-    char* charHold[BUFFER_SIZE];
+    char charHold[BUFFER_SIZE];
 	sprintf(charHold, "%d", COLOUR_PRESET);
 	status = WriteToFile(LED_RED_DUTY_CYCLE, charHold);
     
