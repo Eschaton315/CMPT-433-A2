@@ -20,7 +20,7 @@ bool PWMledsOn(char* LEDPath);
 int CalculatePWMFrequency(void);
 
 //Change the frequency of LEDs with PWM
-void ChangePWMFrequency(int frequency);
+bool ChangePWMFrequency(int frequency);
 
 //Change the LED colour to purple
 void SetPWMledPurple(void);

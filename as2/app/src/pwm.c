@@ -6,7 +6,6 @@
 #include "timer.h"
 #include "pwm.h"
 #include "sampler.h"
-#include "hal/joyStick.h"
 
 #define LED_RED_PERIOD "/dev/bone/pwm/1/b/period"
 #define LED_GREEN_PERIOD "/dev/bone/pwm/2/a/period"
@@ -20,10 +19,50 @@
 #define LED_GREEN_DUTY_CYCLE "/dev/bone/pwm/2/a/duty_cycle"
 #define LED_BLUE_DUTY_CYCLE "/dev/bone/pwm/1/a/duty_cycle"
 
+#define BUFFER_SIZE 20
+#define COLOUR_PRESET 50000
+
 pthread_t pwmThread;
 
 static void* LEDViaPWM();
 
+//runCommand function taken from assignment page
+void runCommand(char* command){
+    // Execute the shell command (output into pipe)
+    FILE *pipe = popen(command, "r");
+    // Ignore output of the command; but consume it
+    // so we don't get an error when closing the pipe.
+    char buffer[1024];
+    while (!feof(pipe) && !ferror(pipe)) {
+    if (fgets(buffer, sizeof(buffer), pipe) == NULL)
+        break;
+        // printf("--> %s", buffer); // Uncomment for debugging
+    }
+    // Get the exit code from the pipe; non-zero is an error:
+    int exitCode = WEXITSTATUS(pclose(pipe));
+    if (exitCode != 0) {
+        perror("Unable to execute command:");
+        printf(" command: %s\n", command);
+        printf(" exit code: %d\n", exitCode);
+    }
+}
+
+
+bool WriteToFile(char* FilePath, char* contents){
+	FILE *FileVar = fopen(FilePath, "w");
+    if (FileVar == NULL) {
+        printf("ERROR OPENING %s.", FilePath);
+        return false;
+        }
+    int charWritten = fprintf(FileVar, contents);
+    if (charWritten <= 0) {
+        printf("ERROR WRITING DATA");
+        return false;
+        }
+    fclose(FileVar);     
+    return true;
+	
+}
 
 //configure pin to LED
 void configLED(void){
@@ -54,119 +93,64 @@ int CalculatePWMFrequency(void){
 
 //Turn PWM LEDs Off
 bool PWMledsOff(char* LEDPath){
-
-    FILE *LEDPathFile = fopen(LEDPath, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LEDPath);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "0");
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);     
-    return true;
+    return WriteToFile(LEDPath, "0");
 }
 
 //Turn PWM LEDs On
 bool PWMledsOn(char* LEDPath){
-
-    FILE *LEDPathFile = fopen(LEDPath, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LEDPath);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "1");
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);     
-    return true;
+	return WriteToFile(LEDPath, "1");
+    
 }
 
 //Change the frequency of LEDs with PWM
-void ChangePWMFrequency(int frequency){
-	FILE *LEDPathFile = fopen(LED_RED_PERIOD, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_RED_PERIOD);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "%d", frequency);
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);     
+bool ChangePWMFrequency(int frequency){	
+	bool status;
+    char* charFrequency[BUFFER_SIZE];
+	sprintf(charFrequency, "%d", frequency);
+	status = WriteToFile(LED_RED_PERIOD, charFrequency);
+    
+	if(status == false){
+		return false;
+	}
 	
-	LEDPathFile = fopen(LED_GREEN_PERIOD, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_GREEN_PERIOD);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "%d", frequency);
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);
-	
-	LEDPathFile = fopen(LED_BLUE_PERIOD, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_BLUE_PERIOD);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "%d", frequency);
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);
-	
+	sprintf(charFrequency, "%d", frequency);
+	status = WriteToFile(LED_GREEN_PERIOD, charFrequency);
+    
+	if(status == false){
+		return false;
+	}sprintf(charFrequency, "%d", frequency);
+	status = WriteToFile(LED_BLUE_PERIOD, charFrequency);
+    
+	if(status == false){
+		return false;
+	}
 	
     return true;
 	
 }
 
 //Change the LED colour to purple
-void SetPWMledPurple(void){
-	FILE *LEDPathFile = fopen(LED_RED_DUTY_CYCLE, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_RED_DUTY_CYCLE);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "50000");
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);     
+bool SetPWMledPurple(void){
+	bool status;
+    char* charHold[BUFFER_SIZE];
+	sprintf(charFrequency, "%d", COLOUR_PRESET);
+	status = WriteToFile(LED_RED_DUTY_CYCLE, charFrequency);
+    
+	if(status == false){
+		return false;
+	}
 	
-	LEDPathFile = fopen(LED_GREEN_DUTY_CYCLE, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_GREEN_DUTY_CYCLE);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "0");
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);
-	
-	LEDPathFile = fopen(LED_BLUE_DUTY_CYCLE, "w");
-    if (LEDPathFile == NULL) {
-        printf("ERROR OPENING %s.", LED_BLUE_DUTY_CYCLE);
-        return false;
-        }
-    int charWritten = fprintf(LEDPathFile, "50000");
-    if (charWritten <= 0) {
-        printf("ERROR WRITING DATA");
-        return false;
-        }
-    fclose(LEDPathFile);
-	
+	status = WriteToFile(LED_GREEN_DUTY_CYCLE, "0");
+    
+	if(status == false){
+		return false;
+	}
+
+	status = WriteToFile(LED_BLUE_DUTY_CYCLE, charFrequency);
+    
+	if(status == false){
+		return false;
+	}	
 	
     return true;
 }
@@ -177,7 +161,7 @@ int CheckPWMFrequency(void){
 	FILE *pFile = fopen(LED_BLUE_PERIOD, "r");
 	if (pFile == NULL) {
 		printf("ERROR: Unable to open file (%s) for read\n", LED_BLUE_PERIOD);
-		return false;
+		return -1;
 	}
 	// Read string (line)
 
@@ -205,7 +189,7 @@ static void *LEDViaPWM*(){
 	status = PWMledOn(LED_RED_PERIOD);
 	status = PWMledOn(LED_GREEN_PERIOD);
 	status = PWMledOn(LED_BLUE_PERIOD);
-	SetPWMledPurple();
+	status = SetPWMledPurple();
 	
 	while(getTerminateStatus() == false){
 		timeCurr = getTimeInMs();
@@ -214,7 +198,7 @@ static void *LEDViaPWM*(){
 			//Reset time current to continue checking for time
 			timePrev = timeCurr;
 			PWMFrequency = CalculatePWMFrequency();
-			if(CheckPWMFrequency() == PWMFrequency){
+			if(CheckPWMFrequency() != PWMFrequency && CheckPWMFrequency() != -1){
 				ChangePWMFrequency(PWMFrequency);					
 			}				
 		}
