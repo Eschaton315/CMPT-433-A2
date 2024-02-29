@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "sampler.h"
 #include "analyzer.h"
+#include "periodTimer.h"
 
 #define DIFFERENCE_THRESHOLD 0.1
 #define HYSTERESIS_THRESHOLD 0.03
@@ -46,10 +47,13 @@ void Analyzer_displaySample(){
     //TODO: get POT raw data and its frequency (Hz)
     //TODO: get Timing jitter information from 1.7
 
+
+
     //First Line displays # of samples, reading from POT, # of dips,
     //and time jitter info from the previous second 
-    printf("#Smpl/s = %d    ", size);
+    printf("#Smpl/s = %d    ", totalSamples);
     printf("POT @ <rawPOTData> => <POTFrequency>"   );
+    printf("avg = %.3f", average);
     printf("dips = %d   ", dipCount);
     printf("Smpl ms[<min>,<max>] avg <average>/%d", size);
     printf("\n");
@@ -59,7 +63,7 @@ void Analyzer_displaySample(){
     if(size >= 20){
         sampleInterval = size / 20;
     }
-    
+
     //Second Line prints 20 samples evenly distributed through the sampleHistory 
         for(int i = 0; i<size && count<20;i++){
             if(i % sampleInterval == 0){
