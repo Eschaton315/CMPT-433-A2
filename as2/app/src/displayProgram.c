@@ -31,12 +31,11 @@ static void *Display2Digit(){
 	while(getTerminateStatus() == false){
 		dips = Analyzer_analyzeDips();
 		DisplayLeftDigit();
-		ChangeDigit(dips);
+		ChangeDigit(dips / 10);
 		sleepForMs(SLEEP_TIME);
 		
-		dips = Analyzer_analyzeDips();
 		DisplayRightDigit();
-		ChangeDigit(dips);
+		ChangeDigit(dips % 10);
 		sleepForMs(SLEEP_TIME);
 	}
 	

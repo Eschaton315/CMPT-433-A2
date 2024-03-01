@@ -22,35 +22,35 @@
 #define GPIO_VALUE_1 "/sys/class/gpio/gpio61/value"
 #define GPIO_VALUE_2 "/sys/class/gpio/gpio44/value"
 
-#define 0_PT1 "i2cset -y 1 0x20 0x00 0xd1"
-#define 0_PT2 "i2cset -y 1 0x20 0x01 0xa5"
+#define NUM0_PT1 "i2cset -y 1 0x20 0x00 0xd1"
+#define NUM0_PT2 "i2cset -y 1 0x20 0x01 0xa5"
 
-#define 1_PT1 "i2cset -y 1 0x20 0x00 0xc0"
-#define 1_PT2 "i2cset -y 1 0x20 0x01 0x4" 
+#define NUM1_PT1 "i2cset -y 1 0x20 0x00 0xc0"
+#define NUM1_PT2 "i2cset -y 1 0x20 0x01 0x4" 
 
-#define 2_PT1 "i2cset -y 1 0x20 0x00 0x98
-#define 2_PT2 "i2cset -y 1 0x20 0x01 0x83
+#define NUM2_PT1 "i2cset -y 1 0x20 0x00 0x98
+#define NUM2_PT2 "i2cset -y 1 0x20 0x01 0x83
 
-#define 3_PT1 "i2cset -y 1 0x20 0x00 0xD8"
-#define 3_PT2 "i2cset -y 1 0x20 0x01 0x01"
+#define NUM3_PT1 "i2cset -y 1 0x20 0x00 0xD8"
+#define NUM3_PT2 "i2cset -y 1 0x20 0x01 0x01"
 
-#define 4_PT1 "i2cset -y 1 0x20 0x00 0xc8"
-#define 4_PT2 "i2cset -y 1 0x20 0x01 0x22"
+#define NUM4_PT1 "i2cset -y 1 0x20 0x00 0xc8"
+#define NUM4_PT2 "i2cset -y 1 0x20 0x01 0x22"
 
-#define 5_PT1 "i2cset -y 1 0x20 0x00 0x58"
-#define 5_PT2 "i2cset -y 1 0x20 0x01 0x23"
+#define NUM5_PT1 "i2cset -y 1 0x20 0x00 0x58"
+#define NUM5_PT2 "i2cset -y 1 0x20 0x01 0x23"
 
-#define 6_PT1 "i2cset -y 1 0x20 0x00 0x58"
-#define 6_PT2 "i2cset -y 1 0x20 0x01 0xa3"
+#define NUM6_PT1 "i2cset -y 1 0x20 0x00 0x58"
+#define NUM6_PT2 "i2cset -y 1 0x20 0x01 0xa3"
 
-#define 7_PT1 "i2cset -y 1 0x20 0x00 0x02"
-#define 7_PT2 "i2cset -y 1 0x20 0x01 0x05"
+#define NUM7_PT1 "i2cset -y 1 0x20 0x00 0x02"
+#define NUM7_PT2 "i2cset -y 1 0x20 0x01 0x05"
 
-#define 8_PT1 "i2cset -y 1 0x20 0x00 0xd8"
-#define 8_PT2 "i2cset -y 1 0x20 0x01 0xa3"
+#define NUM8_PT1 "i2cset -y 1 0x20 0x00 0xd8"
+#define NUM8_PT2 "i2cset -y 1 0x20 0x01 0xa3"
 
-#define 9_PT1 "i2cset -y 1 0x20 0x00 0xc8"
-#define 9_PT2 "i2cset -y 1 0x20 0x01 0x23"
+#define NUM9_PT1 "i2cset -y 1 0x20 0x00 0xc8"
+#define NUM9_PT2 "i2cset -y 1 0x20 0x01 0x23"
 
 
 //runCommand function taken from assignment page
@@ -117,54 +117,54 @@ void InitializeI2C(){
 void ChangeDigit(int number){	
 	switch (number){
 		case 0:
-			runCommand(0_PT1);
-			runCommand(0_PT2);
+			runCommand(NUM0_PT1);
+			runCommand(NUM0_PT2);
 			break;
 		
 		case 1:
-			runCommand(1_PT1);
-			runCommand(1_PT2);
+			runCommand(NUM1_PT1);
+			runCommand(NUM1_PT2);
 			break;
 			
 		case 2:
-			runCommand(2_PT1);
-			runCommand(2_PT2);
+			runCommand(NUM2_PT1);
+			runCommand(NUM2_PT2);
 			break;
 			
 		case 3:
-			runCommand(3_PT1);
-			runCommand(3_PT2);
+			runCommand(NUM3_PT1);
+			runCommand(NUM3_PT2);
 			break;
 			
 		case 4:
-			runCommand(4_PT1);
-			runCommand(4_PT2);
+			runCommand(NUM4_PT1);
+			runCommand(NUM4_PT2);
 			break;
 			
 		case 5:
-			runCommand(5_PT1);
-			runCommand(5_PT2);
+			runCommand(NUM5_PT1);
+			runCommand(NUM5_PT2);
 			break;
 			
 		case 6:
-			runCommand(6_PT1);
-			runCommand(6_PT2);
+			runCommand(NUM6_PT1);
+			runCommand(NUM6_PT2);
 			break;
 			
 		case 7:
-			runCommand(7_PT1);
-			runCommand(7_PT2);
+			runCommand(NUM7_PT1);
+			runCommand(NUM7_PT2);
 			
 			break;
 			
 		case 8:
-			runCommand(8_PT1);
-			runCommand(8_PT2);
+			runCommand(NUM8_PT1);
+			runCommand(NUM8_PT2);
 			break;
 	
 		case 9:
-			runCommand(9_PT1);
-			runCommand(9_PT2);
+			runCommand(NUM9_PT1);
+			runCommand(NUM9_PT2);
 			break;
 	}
 	
