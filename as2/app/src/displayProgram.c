@@ -8,6 +8,9 @@
 #include "timer.h"
 
 #define SLEEP_TIME 5
+#define DIPS_CAP 99
+#define DIVISION_NUMBER 10
+
 static pthread_t displayThread;
 
 //Function for displaying 2 digit
@@ -30,12 +33,15 @@ static void *Display2Digit(){
 	
 	while(getTerminateStatus() == false){
 		dips = Analyzer_analyzeDips();
+		if(dips > DIPS_CAP){
+			dips = DIPS_CAP;
+		}
 		DisplayLeftDigit();
-		ChangeDigit(dips / 10);
+		ChangeDigit(dips / DIVISION_NUMBER);
 		sleepForMs(SLEEP_TIME);
 		
 		DisplayRightDigit();
-		ChangeDigit(dips % 10);
+		ChangeDigit(dips % DIVISION_NUMBER);
 		sleepForMs(SLEEP_TIME);
 	}
 	return NULL;
