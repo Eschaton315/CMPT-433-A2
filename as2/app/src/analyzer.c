@@ -5,6 +5,7 @@
 #include "sampler.h"
 #include "analyzer.h"
 #include "periodTimer.h"
+#include "pwm.h"
 
 #define DIFFERENCE_THRESHOLD 0.1
 #define HYSTERESIS_THRESHOLD 0.03
@@ -43,6 +44,8 @@ void *Analyzer_displaySample(){
     double average = Sampler_getAverageReading();
     int totalSamples = Sampler_getNumSamplesTaken();
     int dipCount = Analyzer_analyzeDips();
+    int potRaw = getPotReading();
+    int potFreq = CalculatePWMFrequency();
     
     enum Period_whichEvent eventType = PERIOD_EVENT_SAMPLE_LIGHT;
     Period_statistics_t *pStats = malloc(sizeof *pStats);
@@ -54,7 +57,7 @@ void *Analyzer_displaySample(){
     //First Line displays # of samples, reading from POT, # of dips,
     //and time jitter info from the previous second 
     printf("#Smpl/s = %d    ", totalSamples);
-    printf("POT @ <rawPOTData> => <POTFrequency>"   );
+    printf("POT @ %d => %d ",potRaw,potFreq);
     printf("avg = %.3f  ", average);
     printf("dips = %d   ", dipCount);
     printf("Smpl ms[%.3f,%.3f] avg %.3f/%d",pStats->minPeriodInMs,pStats->maxPeriodInMs,pStats->avgPeriodInMs ,pStats->numSamples);

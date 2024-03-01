@@ -13,5 +13,6 @@ double Sampler_getAverageReading(void);
 
 long long Sampler_getNumSamplesTaken(void);
 
+int getPotReading(void);
 
 #endif 
