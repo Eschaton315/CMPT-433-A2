@@ -86,7 +86,7 @@ void EchoToFile(char* filePath, char* contents){
 		return;
 	}
 
-	int written = write(file, buff, strlen(buff));
+	int written = write(file, contents, strlen(contents));
 	// Close
 	close(file_desc);
 
