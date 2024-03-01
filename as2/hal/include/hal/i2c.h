@@ -14,4 +14,7 @@ void DisplayLeftDigit();
 //Turns on Right Digit display
 void DisplayRightDigit();
 
+//runCommand function taken from assignment page
+void runCommand(char* command);
+
 #endif 
