@@ -25,7 +25,8 @@ void swapContent(double *d1, double *d2)
 void tradeArrays(double *array1, double *array2, int size)
 {
     //swap unsigned to signed
-	unsigned int i;
+	//The reason why it crashes is because when it goes to swap, unsigned int data type is not suitable.
+	int i;
 	for (i = size-1; i >= 0; i--) {
 		swapContent(array1+i, array2+i);
 	}
