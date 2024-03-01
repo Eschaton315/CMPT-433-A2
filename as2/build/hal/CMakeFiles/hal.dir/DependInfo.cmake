@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/i2c.c" "hal/CMakeFiles/hal.dir/src/i2c.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/i2c.c.o.d"
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/joyStick.c" "hal/CMakeFiles/hal.dir/src/joyStick.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/joyStick.c.o.d"
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/led.c" "hal/CMakeFiles/hal.dir/src/led.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/led.c.o.d"
   )

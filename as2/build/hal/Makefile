@@ -130,6 +130,30 @@ hal/fast:
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
 .PHONY : hal/fast
 
+src/i2c.o: src/i2c.c.o
+.PHONY : src/i2c.o
+
+# target to build an object file
+src/i2c.c.o:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/i2c.c.o
+.PHONY : src/i2c.c.o
+
+src/i2c.i: src/i2c.c.i
+.PHONY : src/i2c.i
+
+# target to preprocess a source file
+src/i2c.c.i:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/i2c.c.i
+.PHONY : src/i2c.c.i
+
+src/i2c.s: src/i2c.c.s
+.PHONY : src/i2c.s
+
+# target to generate assembly for a file
+src/i2c.c.s:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/i2c.c.s
+.PHONY : src/i2c.c.s
+
 src/joyStick.o: src/joyStick.c.o
 .PHONY : src/joyStick.o
 
@@ -187,6 +211,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hal"
+	@echo "... src/i2c.o"
+	@echo "... src/i2c.i"
+	@echo "... src/i2c.s"
 	@echo "... src/joyStick.o"
 	@echo "... src/joyStick.i"
 	@echo "... src/joyStick.s"

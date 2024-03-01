@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/light_sampler.dir/src/analyzer.c.o"
   "CMakeFiles/light_sampler.dir/src/analyzer.c.o.d"
+  "CMakeFiles/light_sampler.dir/src/displayProgram.c.o"
+  "CMakeFiles/light_sampler.dir/src/displayProgram.c.o.d"
   "CMakeFiles/light_sampler.dir/src/main.c.o"
   "CMakeFiles/light_sampler.dir/src/main.c.o.d"
   "CMakeFiles/light_sampler.dir/src/periodTimer.c.o"

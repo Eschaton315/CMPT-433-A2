@@ -154,6 +154,30 @@ src/analyzer.c.s:
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/analyzer.c.s
 .PHONY : src/analyzer.c.s
 
+src/displayProgram.o: src/displayProgram.c.o
+.PHONY : src/displayProgram.o
+
+# target to build an object file
+src/displayProgram.c.o:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o
+.PHONY : src/displayProgram.c.o
+
+src/displayProgram.i: src/displayProgram.c.i
+.PHONY : src/displayProgram.i
+
+# target to preprocess a source file
+src/displayProgram.c.i:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/displayProgram.c.i
+.PHONY : src/displayProgram.c.i
+
+src/displayProgram.s: src/displayProgram.c.s
+.PHONY : src/displayProgram.s
+
+# target to generate assembly for a file
+src/displayProgram.c.s:
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/displayProgram.c.s
+.PHONY : src/displayProgram.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -334,6 +358,9 @@ help:
 	@echo "... src/analyzer.o"
 	@echo "... src/analyzer.i"
 	@echo "... src/analyzer.s"
+	@echo "... src/displayProgram.o"
+	@echo "... src/displayProgram.i"
+	@echo "... src/displayProgram.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

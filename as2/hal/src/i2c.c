@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "i2c.h"
+#include "hal/i2c.h"
 
 #define GPIO_Config_1 "config-pin P9_18 i2c"
 #define GPIO_CONFIG_2 "config-pin P9_17 i2c"

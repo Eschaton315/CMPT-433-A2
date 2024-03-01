@@ -83,10 +83,24 @@ app/CMakeFiles/light_sampler.dir/src/analyzer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/light_sampler.dir/src/analyzer.c.s"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/analyzer.c -o CMakeFiles/light_sampler.dir/src/analyzer.c.s
 
+app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o: app/CMakeFiles/light_sampler.dir/flags.make
+app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c
+app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o"
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o -MF CMakeFiles/light_sampler.dir/src/displayProgram.c.o.d -o CMakeFiles/light_sampler.dir/src/displayProgram.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c
+
+app/CMakeFiles/light_sampler.dir/src/displayProgram.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/light_sampler.dir/src/displayProgram.c.i"
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c > CMakeFiles/light_sampler.dir/src/displayProgram.c.i
+
+app/CMakeFiles/light_sampler.dir/src/displayProgram.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/light_sampler.dir/src/displayProgram.c.s"
+	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c -o CMakeFiles/light_sampler.dir/src/displayProgram.c.s
+
 app/CMakeFiles/light_sampler.dir/src/main.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/main.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/main.c
 app/CMakeFiles/light_sampler.dir/src/main.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/light_sampler.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object app/CMakeFiles/light_sampler.dir/src/main.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/main.c.o -MF CMakeFiles/light_sampler.dir/src/main.c.o.d -o CMakeFiles/light_sampler.dir/src/main.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/main.c
 
 app/CMakeFiles/light_sampler.dir/src/main.c.i: cmake_force
@@ -100,7 +114,7 @@ app/CMakeFiles/light_sampler.dir/src/main.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/periodTimer.c
 app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o -MF CMakeFiles/light_sampler.dir/src/periodTimer.c.o.d -o CMakeFiles/light_sampler.dir/src/periodTimer.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/periodTimer.c
 
 app/CMakeFiles/light_sampler.dir/src/periodTimer.c.i: cmake_force
@@ -114,7 +128,7 @@ app/CMakeFiles/light_sampler.dir/src/periodTimer.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/pwm.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/pwm.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/pwm.c
 app/CMakeFiles/light_sampler.dir/src/pwm.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object app/CMakeFiles/light_sampler.dir/src/pwm.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object app/CMakeFiles/light_sampler.dir/src/pwm.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/pwm.c.o -MF CMakeFiles/light_sampler.dir/src/pwm.c.o.d -o CMakeFiles/light_sampler.dir/src/pwm.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/pwm.c
 
 app/CMakeFiles/light_sampler.dir/src/pwm.c.i: cmake_force
@@ -128,7 +142,7 @@ app/CMakeFiles/light_sampler.dir/src/pwm.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/sampler.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/sampler.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/sampler.c
 app/CMakeFiles/light_sampler.dir/src/sampler.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object app/CMakeFiles/light_sampler.dir/src/sampler.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object app/CMakeFiles/light_sampler.dir/src/sampler.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/sampler.c.o -MF CMakeFiles/light_sampler.dir/src/sampler.c.o.d -o CMakeFiles/light_sampler.dir/src/sampler.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/sampler.c
 
 app/CMakeFiles/light_sampler.dir/src/sampler.c.i: cmake_force
@@ -142,7 +156,7 @@ app/CMakeFiles/light_sampler.dir/src/sampler.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/terminate.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/terminate.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/terminate.c
 app/CMakeFiles/light_sampler.dir/src/terminate.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object app/CMakeFiles/light_sampler.dir/src/terminate.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object app/CMakeFiles/light_sampler.dir/src/terminate.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/terminate.c.o -MF CMakeFiles/light_sampler.dir/src/terminate.c.o.d -o CMakeFiles/light_sampler.dir/src/terminate.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/terminate.c
 
 app/CMakeFiles/light_sampler.dir/src/terminate.c.i: cmake_force
@@ -156,7 +170,7 @@ app/CMakeFiles/light_sampler.dir/src/terminate.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/timer.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/timer.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/timer.c
 app/CMakeFiles/light_sampler.dir/src/timer.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object app/CMakeFiles/light_sampler.dir/src/timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object app/CMakeFiles/light_sampler.dir/src/timer.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/timer.c.o -MF CMakeFiles/light_sampler.dir/src/timer.c.o.d -o CMakeFiles/light_sampler.dir/src/timer.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/timer.c
 
 app/CMakeFiles/light_sampler.dir/src/timer.c.i: cmake_force
@@ -170,7 +184,7 @@ app/CMakeFiles/light_sampler.dir/src/timer.c.s: cmake_force
 app/CMakeFiles/light_sampler.dir/src/udp.c.o: app/CMakeFiles/light_sampler.dir/flags.make
 app/CMakeFiles/light_sampler.dir/src/udp.c.o: /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/udp.c
 app/CMakeFiles/light_sampler.dir/src/udp.c.o: app/CMakeFiles/light_sampler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object app/CMakeFiles/light_sampler.dir/src/udp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object app/CMakeFiles/light_sampler.dir/src/udp.c.o"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/light_sampler.dir/src/udp.c.o -MF CMakeFiles/light_sampler.dir/src/udp.c.o.d -o CMakeFiles/light_sampler.dir/src/udp.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/udp.c
 
 app/CMakeFiles/light_sampler.dir/src/udp.c.i: cmake_force
@@ -184,6 +198,7 @@ app/CMakeFiles/light_sampler.dir/src/udp.c.s: cmake_force
 # Object files for target light_sampler
 light_sampler_OBJECTS = \
 "CMakeFiles/light_sampler.dir/src/analyzer.c.o" \
+"CMakeFiles/light_sampler.dir/src/displayProgram.c.o" \
 "CMakeFiles/light_sampler.dir/src/main.c.o" \
 "CMakeFiles/light_sampler.dir/src/periodTimer.c.o" \
 "CMakeFiles/light_sampler.dir/src/pwm.c.o" \
@@ -196,6 +211,7 @@ light_sampler_OBJECTS = \
 light_sampler_EXTERNAL_OBJECTS =
 
 app/light_sampler: app/CMakeFiles/light_sampler.dir/src/analyzer.c.o
+app/light_sampler: app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o
 app/light_sampler: app/CMakeFiles/light_sampler.dir/src/main.c.o
 app/light_sampler: app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o
 app/light_sampler: app/CMakeFiles/light_sampler.dir/src/pwm.c.o
@@ -206,7 +222,7 @@ app/light_sampler: app/CMakeFiles/light_sampler.dir/src/udp.c.o
 app/light_sampler: app/CMakeFiles/light_sampler.dir/build.make
 app/light_sampler: hal/libhal.a
 app/light_sampler: app/CMakeFiles/light_sampler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable light_sampler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/tony/cmpt433/work/CMPT-433-A2/as2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable light_sampler"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/light_sampler.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Copying ARM executable to public NFS directory"
 	cd /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app && /home/tony/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E copy /home/tony/cmpt433/work/CMPT-433-A2/as2/build/app/light_sampler ~/cmpt433/public/myApps/light_sampler

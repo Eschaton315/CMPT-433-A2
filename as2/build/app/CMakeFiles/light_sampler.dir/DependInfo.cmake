@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/analyzer.c" "app/CMakeFiles/light_sampler.dir/src/analyzer.c.o" "gcc" "app/CMakeFiles/light_sampler.dir/src/analyzer.c.o.d"
+  "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c" "app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o" "gcc" "app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o.d"
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/main.c" "app/CMakeFiles/light_sampler.dir/src/main.c.o" "gcc" "app/CMakeFiles/light_sampler.dir/src/main.c.o.d"
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/periodTimer.c" "app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o" "gcc" "app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o.d"
   "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/pwm.c" "app/CMakeFiles/light_sampler.dir/src/pwm.c.o" "gcc" "app/CMakeFiles/light_sampler.dir/src/pwm.c.o.d"
