@@ -23,10 +23,6 @@ int main()
     UDPThreadCreate();
 	Display2DigitThreadCreate();
 
-
-    //replace this with the udp listener
-
-    sleepForMs(5500);
 	
 	Display2DigitThreadJoin();
     UDPThreadJoin();

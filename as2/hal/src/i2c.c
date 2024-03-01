@@ -82,7 +82,7 @@ void EchoToFile(char* filePath, char* contents){
 	// Open direction file
 	int file = open(filePath, O_WRONLY);
 	if (file < 0) {
-		printf("Failed to read file");
+		printf("Failed to read file %s", filePath);
 		return;
 	}
 
@@ -92,6 +92,7 @@ void EchoToFile(char* filePath, char* contents){
 
 	return;
 }
+
 
 /*
 static int initI2cBus(char* bus, int address) { 
