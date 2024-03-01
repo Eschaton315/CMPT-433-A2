@@ -1,0 +1,74 @@
+[
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/hal/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/hal.dir/src/i2c.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/i2c.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/i2c.c",
+  "output": "hal/CMakeFiles/hal.dir/src/i2c.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/hal/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/hal.dir/src/joyStick.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/joyStick.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/joyStick.c",
+  "output": "hal/CMakeFiles/hal.dir/src/joyStick.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/hal/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/hal.dir/src/led.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/led.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/src/led.c",
+  "output": "hal/CMakeFiles/hal.dir/src/led.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/analyzer.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/analyzer.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/analyzer.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/analyzer.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/displayProgram.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/displayProgram.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/displayProgram.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/main.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/main.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/main.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/main.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/periodTimer.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/periodTimer.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/periodTimer.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/periodTimer.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/pwm.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/pwm.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/pwm.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/pwm.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/sampler.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/sampler.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/sampler.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/sampler.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/terminate.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/terminate.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/terminate.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/terminate.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/timer.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/timer.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/timer.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/timer.c.o"
+},
+{
+  "directory": "/home/tony/cmpt433/work/CMPT-433-A2/as2/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tony/cmpt433/work/CMPT-433-A2/as2/app/include -I/home/tony/cmpt433/work/CMPT-433-A2/as2/hal/include -g -std=gnu11 -Wall -Werror -Wpedantic -Wextra -o CMakeFiles/light_sampler.dir/src/udp.c.o -c /home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/udp.c",
+  "file": "/home/tony/cmpt433/work/CMPT-433-A2/as2/app/src/udp.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/udp.c.o"
+}
+]

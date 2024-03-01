@@ -55,7 +55,7 @@ bool WriteToFile(char* FilePath, char* contents){
         printf("ERROR OPENING %s.", FilePath);
         return false;
         }
-    int charWritten = fprintf(FileVar, contents);
+    int charWritten = fputs(contents, FileVar);
     if (charWritten <= 0) {
         printf("ERROR WRITING DATA");
         return false;
