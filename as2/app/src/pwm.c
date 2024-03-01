@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "timer.h"
 #include "pwm.h"
-#include "i2c.h"
+#include "hal/i2c.h"
 #include "sampler.h"
 #include "terminate.h"
 
