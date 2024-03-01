@@ -108,6 +108,8 @@ static int initI2cBus(char* bus, int address) {
 
 //Code for initializing for I2C
 //Note that it will not initialize for BUS!!
+
+
 void InitializeI2C(){
 	runCommand(GPIO_CONFIG_1);
 	runCommand(GPIO_CONFIG_2);

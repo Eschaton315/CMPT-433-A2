@@ -19,6 +19,7 @@ bool stopSample = false;
 static unsigned long long totalSample = 0;
 int prevSampleSize = 0;
 double sampleHistory [SAMPLE_MAX_VALUE];
+int potReading = 0;
 pthread_t samplerThread;
 pthread_t analyzeThread;
 
@@ -75,6 +76,9 @@ static void *sampleThread(){
                 exit(-1);
             }
             fscanf(sampleFile, "%d", &sample);
+            if(counter == 0){
+                potReading = sample;
+            }
             sampleList[counter] = ((double)sample / A2D_MAX_READING) * A2D_VOLTAGE_REF_V;
             fclose(sampleFile);
             
@@ -126,4 +130,8 @@ double Sampler_getAverageReading(){
 
 long long Sampler_getNumSamplesTaken(){
     return totalSample;
+}
+
+int getPotReading(){
+    return potReading;
 }

@@ -68,9 +68,9 @@ void pwmThreadJoin(void){
 
 //Calculate PWMFrequency
 int CalculatePWMFrequency(void){
-	int histSize = 1;
-	double* histArr = Sampler_getHistory(&histSize);
-	int PWMValue = (int) histArr[0];
+	//int histSize = 1;
+	//double* histArr = Sampler_getHistory(&histSize);
+	int PWMValue = getPotReading();
 	PWMValue = PWMValue / 40;
 	
 	return PWMValue;
