@@ -11,7 +11,6 @@
 #include "udp.h"
 #include "pwm.h"
 #include "hal/led.h"
-#include "hal/joyStick.h"
 #include "displayProgram.h" 
 #include "hal/i2c.h"
 
