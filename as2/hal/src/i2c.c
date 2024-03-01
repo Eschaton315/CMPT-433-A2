@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "hal/i2c.h"
 
 #define GPIO_Config_1 "config-pin P9_18 i2c"
