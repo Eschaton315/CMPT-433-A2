@@ -38,5 +38,5 @@ static void *Display2Digit(){
 		ChangeDigit(dips % 10);
 		sleepForMs(SLEEP_TIME);
 	}
-	
+	return NULL;
 }
