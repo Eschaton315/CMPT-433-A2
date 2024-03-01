@@ -5,8 +5,13 @@
 #include <stdbool.h>
 #include "timer.h"
 #include "pwm.h"
+#include "i2c.h"
 #include "sampler.h"
 #include "terminate.h"
+
+#define CONFIG_PIN1 "config-pin P9_14 pwm"
+#define CONFIG_PIN2 "config-pin P9_16 pwm"
+#define CONFIG_PIN3 "config-pin P8_19 pwm"
 
 #define LED_RED_PERIOD "/dev/bone/pwm/1/b/period"
 #define LED_GREEN_PERIOD "/dev/bone/pwm/2/a/period"
@@ -27,27 +32,6 @@ pthread_t pwmThread;
 
 static void* LEDViaPWM();
 
-//runCommand function taken from assignment page
-void runCommand(char* command){
-    // Execute the shell command (output into pipe)
-    FILE *pipe = popen(command, "r");
-    // Ignore output of the command; but consume it
-    // so we don't get an error when closing the pipe.
-    char buffer[1024];
-    while (!feof(pipe) && !ferror(pipe)) {
-    if (fgets(buffer, sizeof(buffer), pipe) == NULL)
-        break;
-        // printf("--> %s", buffer); // Uncomment for debugging
-    }
-    // Get the exit code from the pipe; non-zero is an error:
-    int exitCode = WEXITSTATUS(pclose(pipe));
-    if (exitCode != 0) {
-        perror("Unable to execute command:");
-        printf(" command: %s\n", command);
-        printf(" exit code: %d\n", exitCode);
-    }
-}
-
 
 bool WriteToFile(char* FilePath, char* contents){
 	FILE *FileVar = fopen(FilePath, "w");
@@ -67,9 +51,9 @@ bool WriteToFile(char* FilePath, char* contents){
 
 //configure pin to LED
 void configLED(void){
-	runCommand("config-pin P9_14 pwm");
-	runCommand("config-pin P9_16 pwm");
-	runCommand("config-pin P8_19 pwm");
+	runCommand(CONFIG_PIN1);
+	runCommand(CONFIG_PIN2);
+	runCommand(CONFIG_PIN3);
 }
 
 //Creates the thread for pwm
