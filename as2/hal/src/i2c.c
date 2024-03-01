@@ -9,8 +9,7 @@
 
 #define GPIO_CONFIG_1 "config-pin P9_18 i2c"
 #define GPIO_CONFIG_2 "config-pin P9_17 i2c"
-#define GPIO_EXPORT_1 "/sys/class/gpio/export"
-#define GPIO_EXPORT_2 "/sys/class/gpio/export"
+#define GPIO_EXPORT "/sys/class/gpio/export"
 #define GPIO_EXPORT_1NUM "61"
 #define GPIO_EXPORT_2NUM "44"
 #define GPIO_DIR_OUT "out"
@@ -111,8 +110,8 @@ static int initI2cBus(char* bus, int address) {
 void InitializeI2C(){
 	runCommand(GPIO_CONFIG_1);
 	runCommand(GPIO_CONFIG_2);
-	EchoToFile(GPIO_EXPORT_1, GPIO_EXPORT_1NUM);
-	EchoToFile(GPIO_EXPORT_2, GPIO_EXPORT_2NUM);
+	EchoToFile(GPIO_EXPORT, GPIO_EXPORT_1NUM);
+	EchoToFile(GPIO_EXPORT, GPIO_EXPORT_2NUM);
 	EchoToFile(GPIO_DIRECTION_1, GPIO_DIR_OUT);
 	EchoToFile(GPIO_DIRECTION_2, GPIO_DIR_OUT);	
 }
