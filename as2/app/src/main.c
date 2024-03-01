@@ -12,6 +12,8 @@
 #include "pwm.h"
 #include "hal/led.h"
 #include "hal/joyStick.h"
+#include "displayProgram.h" 
+#include "hal/i2c.h"
 
 int main()
 {
@@ -20,12 +22,14 @@ int main()
     Sampler_init();
     pwmThreadCreate();
     UDPThreadCreate();
+	Display2DigitThreadCreate();
 
 
     //replace this with the udp listener
 
     sleepForMs(5500);
-
+	
+	Display2DigitThreadJoin();
     UDPThreadJoin();
     pwmThreadJoin();
     Sampler_cleanup();
