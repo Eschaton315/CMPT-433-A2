@@ -4,9 +4,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 #include "hal/i2c.h"
 
-#define GPIO_Config_1 "config-pin P9_18 i2c"
+#define GPIO_CONFIG_1 "config-pin P9_18 i2c"
 #define GPIO_CONFIG_2 "config-pin P9_17 i2c"
 #define GPIO_EXPORT_1 "/sys/class/gpio/export"
 #define GPIO_EXPORT_2 "/sys/class/gpio/export"
@@ -86,7 +87,7 @@ void EchoToFile(char* filePath, char* contents){
 		return;
 	}
 
-	int written = write(file, contents, strlen(contents));
+	write(file, contents, strlen(contents));
 	// Close
 	close(file);
 
@@ -108,8 +109,8 @@ static int initI2cBus(char* bus, int address) {
 //Code for initializing for I2C
 //Note that it will not initialize for BUS!!
 void InitializeI2C(){
-	runCommand(GPIO_Config_1);
-	runCommand(GPIO_Config_2);
+	runCommand(GPIO_CONFIG_1);
+	runCommand(GPIO_CONFIG_2);
 	EchoToFile(GPIO_EXPORT_1, GPIO_EXPORT_1NUM);
 	EchoToFile(GPIO_EXPORT_2, GPIO_EXPORT_2NUM);
 	EchoToFile(GPIO_DIRECTION_1, GPIO_DIR_OUT);
